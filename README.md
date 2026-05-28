@@ -1,4 +1,4 @@
-# JPMorgan Chase Quantitative Research — Virtual Job Simulation
+# JPMorgan Quantitative Research — Virtual Job Simulation
 
 A four-task quantitative research project covering commodity pricing and credit risk modelling, completed as part of the JPMorgan Chase Quantitative Research virtual experience on [Forage](https://www.theforage.com/).
 
