@@ -9,7 +9,7 @@ A four-task quantitative research project covering commodity pricing and credit 
 | 1 | Commodity pricing | Natural gas price forecasting |
 | 2 | Commodity pricing | Storage contract valuation model |
 | 3 | Credit risk | Probability of default & expected loss model |
-| 4 | Credit risk | FICO score quantization (rating map) |
+| 4 | Credit risk | FICO score quantization |
 
 ## Tasks
 
