@@ -3,14 +3,9 @@
 
 # # Bucket FICO scores
 
-# In[1]:
-
 
 import numpy as np
 import pandas as pd
-
-
-# In[20]:
 
 
 loan_data = pd.read_csv("Task 3 and 4_Loan_Data.csv")
@@ -20,8 +15,6 @@ default = np.array(loan_data['default'])
 
 
 # # MSE
-
-# In[22]:
 
 
 # Mean Square Error
@@ -65,8 +58,6 @@ for i in range(len(full_bounds) - 1):
 
 
 # # Dynamic Programming
-
-# In[29]:
 
 
 def quantize_ll(fico_score, default, K):

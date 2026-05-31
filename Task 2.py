@@ -3,13 +3,8 @@
 
 # # Pricing Model
 
-# In[ ]:
-
 
 import pandas as pd
-
-
-# In[30]:
 
 
 def pricing_model(
@@ -83,8 +78,6 @@ def pricing_model(
 
 # # Testing
 
-# In[31]:
-
 
 # Import predicted prices from Task 1
 prices_df = pd.read_csv('Nat_Gas_Predicted.csv', parse_dates=['Dates'])
@@ -93,9 +86,6 @@ prices_df = prices_df.set_index('Dates')
 # Function to get price for a specific date
 def get_price(date):
     return prices_df.loc[pd.to_datetime(date), 'Prices']
-
-
-# In[32]:
 
 
 # Test 1: Basic Test
@@ -122,9 +112,6 @@ value = pricing_model(
     storage_fee=10_000,
 )
 print(f"\nContract Price: ${value:,.2f}")
-
-
-# In[34]:
 
 
 # Test 2: Alternative Injection and Withdrawal
@@ -158,9 +145,6 @@ value = pricing_model(
 print(f"\nContract Price: ${value:,.2f}")
 
 
-# In[35]:
-
-
 # Test 3: Warning Messages
 
 # 3a) max_volume
@@ -179,9 +163,6 @@ except ValueError as e:
     print(f"{e}")
 
 
-# In[38]:
-
-
 # 3b) Negative storage
 try:
     pricing_model(
@@ -196,9 +177,6 @@ try:
 except ValueError as e:
     print()
     print(f"{e}")
-
-
-# In[39]:
 
 
 # 3c) Unbalanced inject/withdraw

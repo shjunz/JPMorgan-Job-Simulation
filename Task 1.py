@@ -3,8 +3,6 @@
 
 # # Exploratory Data Analysis
 
-# In[17]:
-
 
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -12,15 +10,9 @@ import numpy as np
 from scipy import stats
 
 
-# In[18]:
-
-
 month_price = pd.read_csv('Nat_Gas.csv')
 
 month_price.head(5)
-
-
-# In[19]:
 
 
 # Visualization
@@ -66,8 +58,6 @@ plt.show()
 
 # # Price Time Series Model
 
-# In[20]:
-
 
 # Price Time Series Model
 
@@ -91,9 +81,6 @@ print('Coefficients:', beta)
 
 # Predicted price
 y_pred = X @ beta
-
-
-# In[21]:
 
 
 # Residual Diagnostics
@@ -130,8 +117,6 @@ print(f"W = {stat:.4f}, p-value = {p:.4f}")
 
 # # Price Function
 
-# In[22]:
-
 
 # Now we wrap the model into a function with a date as input.
 
@@ -148,8 +133,6 @@ def estimate_price(date):
 
 # # Fitted Price
 
-# In[23]:
-
 
 # Fitted Price
 history_dates = pd.date_range(start=month_price['Dates'].min(), end=month_price['Dates'].max(), freq='D')    
@@ -157,9 +140,6 @@ history_price = []
 for date in history_dates:
     price = estimate_price(date)
     history_price.append(price)
-
-
-# In[24]:
 
 
 # Plot
@@ -176,8 +156,6 @@ plt.show()
 
 # # Extrapolation
 
-# In[25]:
-
 
 # Price one year next
 future_dates = pd.date_range(start=month_price['Dates'].max() + pd.Timedelta(days=1),
@@ -187,9 +165,6 @@ future_price = []
 for date in future_dates:
     price = estimate_price(date)
     future_price.append(price)
-
-
-# In[26]:
 
 
 # Plot
@@ -207,8 +182,6 @@ plt.show()
 
 
 # # Data
-
-# In[27]:
 
 
 export_df = pd.DataFrame({'Dates': all_dates, 'Prices': all_price})

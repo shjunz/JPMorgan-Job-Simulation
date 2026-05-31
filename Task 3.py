@@ -3,8 +3,6 @@
 
 # # Credit Risk Analysis
 
-# In[106]:
-
 
 import pandas as pd
 import numpy as np
@@ -14,15 +12,10 @@ from sklearn.model_selection import train_test_split
 
 # # Exploratory Data Analysis
 
-# In[107]:
-
 
 loan_data = pd.read_csv("Task 3 and 4_Loan_Data.csv")
 
 loan_data.head()
-
-
-# In[108]:
 
 
 # Data Analysis
@@ -36,8 +29,6 @@ print(loan_data.describe().loc[['min', 'max']])
 # # Models
 
 # # 1. Logistic Regression
-
-# In[109]:
 
 
 # y: default
@@ -93,9 +84,6 @@ def train_loop(X_train, y_train, X_val, y_val, beta, learning_rate=0.01, max_ite
     return beta, train_loss, val_loss
 
 
-# In[110]:
-
-
 # Train the model
 beta = np.zeros(X_train_s.shape[1])
 
@@ -112,15 +100,9 @@ plt.legend()
 plt.show()
 
 
-# In[111]:
-
-
 # Test
 test_loss = cross_entropy_loss(y_test, sigmoid(X_test_s @ beta))
 print(f"Test Loss: {test_loss:.4f}")
-
-
-# In[112]:
 
 
 # Diagnose
@@ -163,9 +145,6 @@ plt.grid(alpha=0.3)
 plt.show()
 
 
-# In[113]:
-
-
 # Function to calculate expected loss
 def expected_loss_reg(loan_features, beta, mean, std, recovery_rate=0.1):
     """
@@ -199,8 +178,6 @@ print(f"Average Expected Loss on Test Set: ${np.mean(total_expected_loss):.2f}")
 
 
 # # 2. Decision Trees
-
-# In[114]:
 
 
 # y: default
@@ -340,9 +317,6 @@ def prune_tree(tree, X, y, pen):
     return tree
 
 
-# In[115]:
-
-
 # Build the tree
 tree = build_tree(X_train, y_train, max_depth=10, min_samples=10)
 tree = prune_tree(tree, X_train, y_train, pen=10)
@@ -390,14 +364,8 @@ def plot_tree(tree, figsize=(18, 10)):
 plot_tree(tree)
 
 
-# In[116]:
-
-
 # Test
 y_pred = (pred_multi(tree, X_test) >= 0.5).astype(int)
-
-
-# In[117]:
 
 
 # Diagnose
@@ -405,9 +373,6 @@ y_pred = (pred_multi(tree, X_test) >= 0.5).astype(int)
 # Confusion matrix
 print("Confusion Matrix:")
 print(confusion_matrix(y_test, y_pred))
-
-
-# In[118]:
 
 
 # Function to calculate expected loss
